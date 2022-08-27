@@ -1,14 +1,42 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, Breadcrumb } from 'reactstrap';
+import { Nav, NavbarToggler, NavItem, Collapse, Navbar, NavbarBrand, Breadcrumb } from 'reactstrap';
+import {NavLink} from 'react-router-dom';
 
 class Header extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            isOpenNav: false
+        }
+    }
+
+    toggleNav = () => {
+        this.setState({isOpenNav: !this.state.isOpenNav})
+    }
 
     render() { 
         return (
             <React.Fragment>
-                <Navbar dark>
+                <Navbar dark expand='md'>
                     <div className='container'>
-                <NavbarBrand href='/'>Ristorante Con Fusion</NavbarBrand>
+                        <NavbarToggler onClick={this.toggleNav}/>
+                        <NavbarBrand className='mr-auto' href='/'>Ristorante Con Fusion</NavbarBrand>
+                        <Collapse isOpen={this.state.isOpenNav} navbar>
+                            <Nav navbar>
+                                <NavItem>
+                                    <NavLink className='nav-link' to='/home'><span className='fa fa-home fa-lg'></span>Home</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className='nav-link' to='/about'><span className='fa fa-info fa-lg'></span>About Us</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className='nav-link' to='/menu'><span className='fa fa-list fa-lg'></span>Menu</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className='nav-link' to='/contact'><span className='fa fa-address-card fa-lg'></span>Contact Us</NavLink>
+                                </NavItem>
+                            </Nav>
+                        </Collapse>
                     </div>
                 </Navbar>
                 <Breadcrumb>
