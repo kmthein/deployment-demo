@@ -39,7 +39,7 @@ class Header extends Component {
                         </Collapse>
                     </div>
                 </Navbar>
-                <Breadcrumb>
+                <div className='h-100 p-5 rounded-3' style={{background: "#9575CD", color: "floralwhite"}}>
                     <div className='container'>
                         <div className='row row-header'>
                             <div className='col-12 col-sm-6'>
@@ -48,7 +48,7 @@ class Header extends Component {
                             </div>
                         </div>
                     </div>
-                </Breadcrumb>
+                </div>
             </React.Fragment>
           );
     }
